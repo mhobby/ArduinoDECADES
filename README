@@ -1,0 +1,24 @@
+Program for interfacing instruments/sensors producing analog voltages to the 
+FAAM aircraft data acqusition system: DECADES.
+
+Program is intended to be loaded onto an Arduino UNO or Arduino UNO-PRO 
+(see http://www.hobbytronics.co.uk/arduino-uno-pro) with Arduino Ethernet-Shield
+attached.
+
+The program will log the difference between Analog input pins A0 and A1. 
+The data is recorded at 1Hz and stored to a csv file on the on board SD card. 
+The data is streamed to two TCP/IP servers in binary format.
+The data is streamed over UDP/IP using a multicast address.
+Timing synchronisation is provided by frequent checks to an NTP server.
+The addresses of the TCP/IP servers, UDP/IP multicast, NTP server, local 
+Arduino IP address are setup using the zeusCon.cfg file found on the SD card. If
+the SD card is not present, then these options are set to thosed hardcoded in 
+this program.
+
+Data is also streamed over a serial terminal, along with useful debug 
+information.
+
+Further features are described in specific version READMEs.
+
+Matt Hobby, 2014. 
+
