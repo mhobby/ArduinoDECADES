@@ -1,0 +1,13 @@
+field,type,max_chars,description,,,,,,,
+ARDD0001,text,8,this is the identifier for the start of the ARDD0001 UDP packet,,,,,,,
+packet length,unsigned_int,3,the length of the packet (not including all characters up-to the comma which follows this number),,,,,,,
+utc_time,unsigned_int,10,the valid time for this packet,,,,,,,
+ntp_sync,boolean,1,"indication of whether the unit is successfully synchronised to NTP time ( 1 = synced, 0 = not-synced )",,,,,,,
+ard_temp,unsigned_int,5,reserved,,,,,,,
+flight_num,signed_int,5,"indicates the flight number for this packet ( an ""XXXX"" string here indicates that the unit hasn't been assigned a flight number )",,,,,,,
+ard_rtc_run,boolean,1,"indicates whether the realtime code is running ( a value toggling e.g. 1-0-1-0?etc shows running code, fixed value = non running )",,,,,,,
+ard_UDP_num,unisgned_int,5,this number starts @ zero and increments with each UDP packet - used for verification of packet stream,,,,,,,x
+ard_mem_free,text,3,a string to represent the percentage of SD card currently free,,,,,,,
+ard_adcDiff,signed_int,5,1Hz raw difference readings (in counts) between A0 and A1,,,,,,,
+,,46,,,,,,,,
+,,10,,,,,,,,

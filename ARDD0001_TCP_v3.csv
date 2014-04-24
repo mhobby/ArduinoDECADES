@@ -1,0 +1,11 @@
+field,num_of_bytes,bytes_per_data_point,representation,description
+$ARDD0001,9,9,text,this is the identifier for the start of the ARDD0001 TCP packet
+packet_length,4,4,>signed_int,the length of this packet (not including all bytes up-to and including this number)
+utc_time,4,4,>unsigned_int,the valid time for this packet
+ntp_sync,1,1,text,indication of whether the unit successfully synchronised to NTP time in that sampling periodx
+ard_temp,2,2,>unsigned_int,reserved
+flight_num,4,4,text,"indicates the flight number for this packet ( an ""XXXX"" string here indicates that the unit hasn't been assigned a flight number )"
+ard_rtc_run,2,2,>signed_int,"indicates whether the realtime code is running ( a value toggling e.g. 1-0-1-0?etc shows running code, fixed value = non running )"
+ard_UDP_num,4,4,>unsigned_int,this number starts @ zero and increments with each UDP packet - used for verification of packet stream
+ard_mem_free,1,1,text,a byte to represent the percentage of the SD card that is free
+ard_adcDiff,2,2,>signed_int,1Hz raw difference readings (in counts) between A0 and A1
