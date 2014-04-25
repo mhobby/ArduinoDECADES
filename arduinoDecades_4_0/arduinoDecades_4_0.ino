@@ -34,14 +34,14 @@ char fname[12];                                  //sd card data storage filename
 char ntpBuf[NTP_PACKET_SIZE];                    //buffer for NTP data
 #define POSIX_0 2208988800;                      // 1st Jan 1970 00:00Z
 
-unsigned long syncTimeout = 250;                 //no. of ms to wait following an NTP request
-
+unsigned long syncTimeout = 10;                  //no. of ms to wait following an NTP request
+ 
 unsigned int T=1000;                             //sample period
 unsigned int syncT=5;                            //period between NTP resyncs in s
   
 int sensorPin = A0;
 char sensId[10]="$ARDD0001";                     //name of this sensor- overidden by arddConf.cfg on SD
-char flight[5]="XXXX";                          //flight number
+char flight[5]="XXXX";                           //flight number
 signed int sensVal=0;                            //sensor value 
 unsigned int ardTemp=0;                          //arduino temperature (not currently sensed, but for future...)
 unsigned long lNTP;                              //local NTP time
