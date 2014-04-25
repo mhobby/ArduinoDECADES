@@ -12,12 +12,12 @@ EthernetClient dataClientB;                      //handle for TCP client transac
 EthernetUDP ntpClient;                           //handle for NTP client
 EthernetUDP dataClientC;                         //handle for NTP client
 
-IPAddress localIp(192, 168,   1,  79);           //Local IP(this machine) - default IP, overidden by ardDecConf.cfg on SD
+IPAddress localIp(192, 168,   1,  79);           //Local IP(this machine) - default IP, overidden by arddConf.cfg on SD
 IPAddress gateway(192, 168,   1, 253);
 
-IPAddress dataServerA(192, 168, 101, 110);       //Data Server A (TCP) - default IP, overidden by ardDecConf.cfg on SD
+IPAddress dataServerA(192, 168, 101, 110);       //Data Server A (TCP) - default IP, overidden by arddConf.cfg on SD
 unsigned int dataServerA_port=3502;
-IPAddress dataServerB(192, 168, 101, 108);       //Data Server B (TCP) - default IP, overidden by ardDecConf.cfg on SD
+IPAddress dataServerB(192, 168, 101, 108);       //Data Server B (TCP) - default IP, overidden by arddConf.cfg on SD
 unsigned int dataServerB_port=3502;
 IPAddress dataServerC(239, 1, 4, 7);             //Data Server C (UDP)
 unsigned int dataServerC_port=50001;
@@ -25,7 +25,7 @@ unsigned int dataServerC_port=50001;
 bool A =false;                                   //flag for whether Server A is connected
 bool B =false;                                   //flag for whether Server B is connected
 bool card =false;                                //flag for whether SD card is present
-IPAddress ntpServer(192, 168, 101, 2);           //NTP Server - default IP, overidden by ardDecConf.cfg on SD
+IPAddress ntpServer(192, 168, 101, 2);           //NTP Server - default IP, overidden by arddConf.cfg on SD
 
 char fname[12];                                  //sd card data storage filename
 
@@ -39,7 +39,7 @@ unsigned int T=1000;                             //sample period
 unsigned int syncT=5;                            //period between NTP resyncs in s
   
 int sensorPin = A0;
-char sensId[10]="$ARDD0001";                     //name of this sensor- overidden by ardDecConf.cfg on SD
+char sensId[10]="$ARDD0001";                     //name of this sensor- overidden by arddConf.cfg on SD
 char flight[5]="XXXX";                           //flight number
 signed int sensVal=0;                            //sensor value 
 unsigned int ardTemp=0;                          //arduino temperature (not currently sensed, but for future...)
@@ -372,7 +372,7 @@ void setup()
     Serial.print("Card size: "); Serial.print(size); Serial.println(" MB");
     Serial.print("Free space: "); Serial.print(fs); Serial.println(" MB");
     file.begin(4, SPI_FULL_SPEED);   // start FAT fs    
-    ifstream sdin("ardDecConf.cfg"); 
+    ifstream sdin("arddConf.cfg"); 
     if (readConfig(ID, IPL, IPG, IPA, IPB, IPC, IPntp))
     {
        for(byte i=0; i<9; i++) {
